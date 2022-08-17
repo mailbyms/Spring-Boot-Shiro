@@ -8,6 +8,7 @@ https://blog.csdn.net/weixin_45390688/article/details/122148329
 - Shiro 的重要概念 Realm（CustomerRealm.java），主要定义两个操作：认证（账号是否合法）和授权（账号拥有哪些权限） 
 - ShiroConfig.java 为 shiro 的全局配置，定义哪些接口可以不拦截，哪些接口需要拦截；以及处理被拦截的接口的 Filter（MyFilter.java），被拦截的接口会进入 MyFilter 的 isAccessAllowed()  
 - 因为是前后端分离的项目，不再有 session 的概念，ShiroConfig 要关闭 Shiro 自带的 Session 管理。即每个请求过来，都需要执行一次登录操作，给 Shiro 赋予保存对象（自定义的 ShiroUser 信息）
+- 本项目的 JWT 只是信息传递的媒介，token 的一种形式。并没有用到 jwt 自带的有效期等特性（redis 控制有效期）
 
 涉及2个主要流程：
 1. Controller 的登录接口
